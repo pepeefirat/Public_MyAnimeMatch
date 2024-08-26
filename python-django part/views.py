@@ -226,8 +226,8 @@ def uno_genre(genre_dict, results, genress, a, is_in, mydb, cursor):
                         genre_dict[genres][intersection[index + in_int]][intersection[index + in_int + in_1_int]]["ep"] + eps
     if not is_in:
         cursor.execute(f"""
-                                                                       DELETE FROM 1genre_list
-                                                                       WHERE username = "{a}"        
+                                       DELETE FROM 1genre_list
+                                       WHERE username = "{a}"        
                                                                    """)
         cursor.execute(f"""
                                        DELETE FROM first_userinfo
@@ -575,6 +575,11 @@ def home_page(request, *args, **kwargs):
         for hasa in comp_anis:
             ani_list[hasa] = {"score": -6900}
         sorted_ani_list = sorted(ani_list.items(), key=lambda x: x[1]["score"], reverse=True)
+        for index, xx in enumerate(sorted_user_list[:50]):
+            if xx[0].lower() == name.lower():
+                removed = sorted_user_list.pop(index)
+                sorted_user_list.insert(0, removed)
+                break
         if wanted_score <= 0:
             wanted_score = sorted_ani_list[0][1]["score"]
         cursor.execute(f"DROP TEMPORARY TABLE IF EXISTS temp_users_list_{a}")
