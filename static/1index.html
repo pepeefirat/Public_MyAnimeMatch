@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyAnimeMatch</title>
+  <link rel="stylesheet" href="{% static 'text.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/a_logo.ico' %}">
+  <link rel="icon" href="{% static 'images/a_logo.ico' %}">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="start">
+          <div class="item" id="item5">
+            <img id="I_Am_So_Done" src="{% static 'images/a_logo.png' %}" width="20%" height="20%">
+          </div>
+          <div class="item" id="item0">
+            <a href="#part1">Recommended Animes</a>
+          </div>
+          <div class="item" id="item1">
+            <a href="#part2">Recommended Mangas</a>
+          </div>
+          <div class="item" id="item2">
+            <a href="#part3">Your Stats</a>
+          </div>
+          <div class="item" id="item3">
+            <a href="#part4">Similar Users</a>
+          </div>
+          <div class="item" id="item4">
+            <a href="#part0">Login</a>
+          </div>
+      </div>
+    </header>
+    <main>
+      <div class="upform" id="part0">
+        <div class="up">
+          <div class="text">
+            {% if not user_not_found and not user_0%}
+            <p class=bb>
+              Welcome to MyAnimeMatch, {{user}}.
+            </p>
+            <h1 class=aa>
+              Enter your MyAnimeList username
+            </h1>
+            <p class=cc>
+              to find similar users and some animes you will probably like.
+            </p>
+            {% endif%}
+            {% if user_not_found %}
+            <p class=bb>
+              Welcome to MyAnimeMatch, {{user}}?
+            </p>
+            <h1 class=aa>
+                Please enter an actual account name
+            </h1>
+            <p class=cc>
+              or remove the restrictions on your anime list.
+            </p>
+            {% endif %}
+            {% if user_0 %}
+            <p class=bb>
+              Welcome to MyAnimeMatch, {{user}}.
+            </p>
+            <h1 class=aa>
+                Please score more animes, so that I can assess your taste.
+            </h1>
+            {% endif %}
+            <div class="form" id="myFormContainer">
+              <form action="." method="POST" class="form_container">
+                  <p class="formp">
+                    {% csrf_token %}
+                      <input type="text" id="account_name" name="account_name" placeholder="Your Mal account" maxlength="16" minlength="2" required>
+                      <button id="account_name2" type="submit">Submit</button>
+                  </p>
+              </form>
+            </div>
+          </div>
+
+          <div class="dd">
+            <img src="{% static 'images/girl-8435329_1280-removebg-preview.png' %}" width="75%" height="75%">
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="second_part">
+    <div class="parts">
+      <div class="part1" id="part1">
+        <div class="textfor1">
+          <div class="textfor1_1">
+            <p class="animestext1" id="animestext1">
+              Animes
+            </p>
+          </div>
+          <div class="textfor1_2">
+            <h3 class="animestext1_2" id="animestext1_2">
+              Recommended Animes
+            </h3>
+            <form action="." method="POST" class="form_container">
+              {% csrf_token %}
+                <input type="hidden" id="fixed_field" name="fixed_field" value="fixed_value">
+                <button id="view1" type="submit">View All</button>
+            </form>
+          </div>
+        </div>
+        <div class="itemsfor1">
+          <div class="itemssfor1" id="itemfor1_1">
+            <img src={{ani1_pic}} width="100%" height="100%">
+            <p id="pid">
+              {{ani1_score}}
+            </p>
+            <a id="pid2" href="https://myanimelist.net/anime/{{ani1_id}}/{{ani1}}" target=”_blank” >
+              {{ani1}}
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_2">
+            <img src="{{ani2_pic}}" width="100%" height="100%">
+            <p id="pid">
+              {{ani2_score}}
+            </p>
+            <a id="pid2" href="https://myanimelist.net/anime/{{ani2_id}}/{{ani2}}" target=”_blank” >
+              {{ani2}}
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_3">
+            <img src="{{ani3_pic}}" width="100%" height="100%">
+            <p id="pid">
+              {{ani3_score}}
+            </p>
+            <a id="pid2" href="https://myanimelist.net/anime/{{ani3_id}}/{{ani3}}" target=”_blank” >
+              {{ani3}}
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_4">
+            <img src="{{ani4_pic}}" width="100%" height="100%">
+            <p id="pid">
+              {{ani4_score}}
+            </p>
+            <a id="pid2" href="https://myanimelist.net/anime/{{ani4_id}}/{{ani4}}" target=”_blank” >
+              {{ani4}}
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_5">
+            <img src="{{ani5_pic}}" width="100%" height="100%">
+            <p id="pid">
+              {{ani5_score}}
+            </p>
+            <a id="pid2" href="https://myanimelist.net/anime/{{ani5_id}}/{{ani5}}" target=”_blank” >
+              {{ani5}}
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_6">
+            <img src="{{ani6_pic}}" width="100%" height="100%">
+            <p id="pid">
+              {{ani6_score}}
+            </p>
+            <a id="pid2" href="https://myanimelist.net/anime/{{ani6_id}}/{{ani6}}" target=”_blank” >
+              {{ani6}}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="part2" id="part2">
+        <div class="textfor1">
+          <div class="textfor1_1">
+            <p class="animestext1" id="animestext1">
+              Mangas
+            </p>
+          </div>
+          <div class="textfor1_2">
+            <h3 class="animestext1_2" id="animestext1_2">
+              Recommended Mangas
+            </h3>
+            <a class="view1" id="view1">
+              View All
+            </a>
+          </div>
+        </div>
+        <p id="c_soon">
+          Coming (maybe) soon.
+        </p>
+      </div>
+      <div class="part3" id="part3">
+        <div class="textfor3">
+            <p class="animestext3_1" id="animestext3_1">
+              Stats
+            </p>
+            <h3 class="animestext3_2" id="animestext3_2">
+              Your Stats
+            </h3>
+        </div>
+        <div class="itemsfor3">
+          <div class="itemssfor3" id="itemfor3_1">
+            <p class="itemssfor3_1">
+              Average Score
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              {{av_score}}
+            </p>
+          </div>
+          <div class="itemssfor3" id="itemfor3_2">
+            <p class="itemssfor3_1">
+              Top Anime
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              {{top_anime}}
+            </p>
+          </div>
+          <div class="itemssfor3" id="itemfor3_3">
+            <p class="itemssfor3_1">
+              Top Genre Duo
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              {{1genre}}
+            </p>
+          </div>
+          <div class="itemssfor3" id="itemfor3_4">
+            <p class="itemssfor3_1">
+              Top Genre Trio
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              {{3genre}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="part4" id="part4">
+        <div class="textfor3">
+          <p class="animestext3_1" id="animestext3_1">
+            Users
+          </p>
+          <h3 class="animestext3_2" id="animestext3_2">
+            Similar Users
+          </h3>
+      </div>
+      <div class="itemsfor3">
+        <div class="itemssfor5" id="itemfor3_1">
+          <p class="itemssfor3_1" id="end_">
+            1-10
+          </p>
+          <p>
+            <a class="itemssfor5_1" id="itemfor5_1_1" href="https://myanimelist.net/profile/{{user1}}" target=”_blank” >
+              1- {{user1}}
+            </a>
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_2" href="https://myanimelist.net/profile/{{user2}}" target=”_blank” >
+            2- {{user2}}
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_3" href="https://myanimelist.net/profile/{{user3}}" target=”_blank” >
+            3- {{user3}}
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_4" href="https://myanimelist.net/profile/{{user4}}" target=”_blank” >
+            4- {{user4}}
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_5" href="https://myanimelist.net/profile/{{user5}}" target=”_blank” >
+            5- {{user5}}
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_6" href="https://myanimelist.net/profile/{{user6}}" target=”_blank” >
+            6- {{user6}}
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_7" href="https://myanimelist.net/profile/{{user7}}" target=”_blank” >
+            7- {{user7}}
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_8" href="https://myanimelist.net/profile/{{user8}}" target=”_blank” >
+            8- {{user8}}
+          </a>
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_9" href="https://myanimelist.net/profile/{{user9}}" target=”_blank” >
+            9- {{user9}}
+          </a>
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_10" href="https://myanimelist.net/profile/{{user10}}" target=”_blank” >
+            10- {{user10}}
+          </a>
+          </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_2">
+          <p class="itemssfor3_1" id="end_">
+            11-20
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_2_1" href="https://myanimelist.net/profile/{{user11}}" target=”_blank” >
+            11- {{user11}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_2" href="https://myanimelist.net/profile/{{user12}}" target=”_blank” >
+            12- {{user12}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_3" href="https://myanimelist.net/profile/{{user13}}" target=”_blank” >
+            13- {{user13}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_4" href="https://myanimelist.net/profile/{{user14}}" target=”_blank” >
+            14- {{user14}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_5" href="https://myanimelist.net/profile/{{user15}}" target=”_blank” >
+            15- {{user15}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_6" href="https://myanimelist.net/profile/{{user16}}" target=”_blank” >
+            16- {{user16}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_7" href="https://myanimelist.net/profile/{{user17}}" target=”_blank” >
+            17- {{user17}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_8" href="https://myanimelist.net/profile/{{user18}}" target=”_blank” >
+            18- {{user18}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_9" href="https://myanimelist.net/profile/{{user19}}" target=”_blank” >
+            19- {{user19}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_10" href="https://myanimelist.net/profile/{{user20}}" target=”_blank” >
+            20- {{user20}}
+          </a>
+        </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_3">
+          <p class="itemssfor3_1" id="end_">
+            21-30
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_3_1" href="https://myanimelist.net/profile/{{user21}}" target=”_blank” >
+            21- {{user21}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_2" href="https://myanimelist.net/profile/{{user22}}" target=”_blank” >
+            22- {{user22}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_3" href="https://myanimelist.net/profile/{{user23}}" target=”_blank” >
+            23- {{user23}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_4" href="https://myanimelist.net/profile/{{user24}}" target=”_blank” >
+            24- {{user24}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_5" href="https://myanimelist.net/profile/{{user25}}" target=”_blank” >
+            25- {{user25}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_6" href="https://myanimelist.net/profile/{{user26}}" target=”_blank” >
+            26- {{user26}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_7" href="https://myanimelist.net/profile/{{user27}}" target=”_blank” >
+            27- {{user27}}
+          </a>
+        </p>
+        <p>        
+          <a class="itemssfor5_1" id="itemfor5_3_8" href="https://myanimelist.net/profile/{{user28}}" target=”_blank” >
+            28- {{user28}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_9" href="https://myanimelist.net/profile/{{user29}}" target=”_blank” >
+            29- {{user29}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_10" href="https://myanimelist.net/profile/{{user30}}" target=”_blank” >
+            30- {{user30}}
+          </a>
+        </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_4">
+          <p class="itemssfor3_1" id="end_">
+            31-40
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_4_1" href="https://myanimelist.net/profile/{{user31}}" target=”_blank” >
+            31- {{user31}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_2" href="https://myanimelist.net/profile/{{user32}}" target=”_blank” >
+            32- {{user32}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_3" href="https://myanimelist.net/profile/{{user33}}" target=”_blank” >
+            33- {{user33}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_4" href="https://myanimelist.net/profile/{{user34}}" target=”_blank” >
+            34- {{user34}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_5" href="https://myanimelist.net/profile/{{user35}}" target=”_blank” >
+            35- {{user35}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_6" href="https://myanimelist.net/profile/{{user36}}" target=”_blank” >
+            36- {{user36}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_7" href="https://myanimelist.net/profile/{{user37}}" target=”_blank” >
+            37- {{user37}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_8" href="https://myanimelist.net/profile/{{user38}}" target=”_blank” >
+            38- {{user38}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_9" href="https://myanimelist.net/profile/{{user39}}" target=”_blank” >
+            39- {{user39}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_10" href="https://myanimelist.net/profile/{{user40}}" target=”_blank” >
+            40- {{user40}}
+          </a>
+        </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_5">
+          <p class="itemssfor3_1" id="end_">
+            41-50
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_5_1" href="https://myanimelist.net/profile/{{user41}}" target=”_blank” >
+            41- {{user41}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_2" href="https://myanimelist.net/profile/{{user42}}" target=”_blank” >
+            42- {{user42}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_3" href="https://myanimelist.net/profile/{{user43}}" target=”_blank” >
+            43- {{user43}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_4" href="https://myanimelist.net/profile/{{user44}}" target=”_blank” >
+            44- {{user44}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_5" href="https://myanimelist.net/profile/{{user45}}" target=”_blank” >
+            45- {{user45}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_6" href="https://myanimelist.net/profile/{{user46}}" target=”_blank” >
+            46- {{user46}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_7" href="https://myanimelist.net/profile/{{user47}}" target=”_blank” >
+            47- {{user47}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_8" href="https://myanimelist.net/profile/{{user48}}" target=”_blank” >
+            48- {{user48}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_9" href="https://myanimelist.net/profile/{{user49}}" target=”_blank” >
+            49- {{user49}}
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_10" href="https://myanimelist.net/profile/{{user50}}" target=”_blank” >
+            50- {{user50}}
+          </a>
+        </p> 
+        </div>
+        </div>
+      </div>
+      <footer>
+        <div class="end" id="end">
+          <a href="https://twitter.com/Pepeefirat" target=”_blank” >
+              My Twitter
+          </a>
+          <a id="end1" href="https://github.com/pepeefirat" target=”_blank” >
+              My Github
+          </a>
+          <a href="https://myanimelist.net/profile/pepeefirat" target=”_blank” >
+              My Mal
+          </a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="jscript.js"></script>
+</body>
+</html>

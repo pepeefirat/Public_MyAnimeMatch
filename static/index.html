@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyAnimeMatch</title>
+  <link rel="stylesheet" href="{% static 'text.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/a_logo.ico' %}">
+  <link rel="icon" href="{% static 'images/a_logo.ico' %}">
+</head>
+  
+<body>
+  <div class="container">
+    <header>
+      <div class="start">
+          <div class="item" id="item5">
+            <img id="I_Am_So_Done" src="{% static 'images/a_logo.png' %}" width="20%" height="20%">
+          </div>
+          <div class="item" id="item0">
+            <a href="#part1">Recommended Animes</a>
+          </div>
+          <div class="item" id="item1">
+            <a href="#part2">Recommended Mangas</a>
+          </div>
+          <div class="item" id="item2">
+            <a href="#part3">Your Stats</a>
+          </div>
+          <div class="item" id="item3">
+            <a href="#part4">Similar Users</a>
+          </div>
+          <div class="item" id="item4">
+            <a href="#part0">Login</a>
+          </div>
+      </div>
+    </header>
+    <main>
+      <div class="upform" id="part0">
+        <div class="up">
+          <div class="text">
+            <p class=bb>
+              Welcome to MyAnimeMatch.
+            </p>
+            <h1 class=aa>
+              Enter your MyAnimeList username
+            </h1>
+            <p class=cc>
+              to find similar users and some animes you will probably like.
+            </p>
+            <div class="form" id="myFormContainer">
+              <form action="." method="POST" class="form_container">
+                  <p class="formp">
+                    {% csrf_token %}
+                      <input type="text" id="account_name" name="account_name" placeholder="Your Mal account" maxlength="16" minlength="2" required>
+                      <button id="account_name2" type="submit">Submit</button>
+                  </p>
+              </form>
+            </div>
+          </div>
+          <div class="dd">
+            <img src="{% static 'images/girl-8435329_1280-removebg-preview.png' %}" width="75%" height="75%">
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="second_part">
+    <div class="parts">
+      <div class="part1" id="part1">
+        <div class="textfor1">
+          <div class="textfor1_1">
+            <p class="animestext1" id="animestext1">
+              Animes
+            </p>
+          </div>
+          <div class="textfor1_2">
+            <h3 class="animestext1_2" id="animestext1_2">
+              Recommended Animes
+            </h3>
+            <button onclick="{{func}}" class="view1" id="view1">View All</button>
+          </div>
+        </div> 
+        <div class="itemsfor1">
+          <div class="itemssfor1" id="itemfor1_1">
+            <img src="" width="100%" height="100%">
+            <p id="pid">
+              0.0
+            </p>
+            <a id="pid2" href="">
+              Anime
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_2">
+            <img src="" width="100%" height="100%">
+            <p id="pid">
+              0.0
+            </p>
+            <a id="pid2" href="">
+              Anime
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_3">
+            <img src="" width="100%" height="100%">
+            <p id="pid">
+              0.0
+            </p>
+            <a id="pid2" href="">
+              Anime
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_4">
+            <img src="" width="100%" height="100%">
+            <p id="pid">
+              0.0
+            </p>
+            <a id="pid2" href="">
+              Anime
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_5">
+            <img src="" width="100%" height="100%">
+            <p id="pid">
+              0.0
+            </p>
+            <a id="pid2" href="">
+              Anime
+            </a>
+          </div>
+          <div class="itemssfor1" id="itemfor1_6">
+            <img src="" width="100%" height="100%">
+            <p id="pid">
+              0.0
+            </p>
+            <a id="pid2" href="">
+              Anime
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="part2" id="part2">
+        <div class="textfor1">
+          <div class="textfor1_1">
+            <p class="animestext1" id="animestext1">
+              Mangas
+            </p>
+          </div>
+          <div class="textfor1_2">
+            <h3 class="animestext1_2" id="animestext1_2">
+              Recommended Mangas
+            </h3>
+            <a class="view1" id="view1">
+              View All
+            </a>
+          </div>
+        </div> 
+        <p id="c_soon">
+          Coming (maybe) soon.
+        </p>
+      </div>
+      <div class="part3" id="part3">
+        <div class="textfor3">
+            <p class="animestext3_1" id="animestext3_1">
+              Stats
+            </p>
+            <h3 class="animestext3_2" id="animestext3_2">
+              Your Stats
+            </h3>
+        </div>
+        <div class="itemsfor3">
+          <div class="itemssfor3" id="itemfor3_1">
+            <p class="itemssfor3_1">
+              Average Score
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              0.0
+            </p>
+          </div>
+          <div class="itemssfor3" id="itemfor3_2">
+            <p class="itemssfor3_1">
+              Top Genre
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              -
+            </p>
+          </div>
+          <div class="itemssfor3" id="itemfor3_3">
+            <p class="itemssfor3_1">
+              Top Genre Duo
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              -
+            </p>
+          </div>
+          <div class="itemssfor3" id="itemfor3_4">
+            <p class="itemssfor3_1">
+              Top Genre Trio
+            </p>
+            <p class="itemssfor3_1" id="itemfor3_1_1">
+              -
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="part4" id="part4">
+        <div class="textfor3">
+          <p class="animestext3_1" id="animestext3_1">
+            Users
+          </p>
+          <h3 class="animestext3_2" id="animestext3_2">
+            Similar Users
+          </h3>
+      </div>
+      <div class="itemsfor3">
+        <div class="itemssfor5" id="itemfor3_1">
+          <p class="itemssfor3_1" id="end_">
+            1-10
+          </p>
+          <p>
+            <a class="itemssfor5_1" id="itemfor5_1_1" href="">
+              1-
+            </a>
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_2" href="">
+            2-
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_3" href="">
+            3-
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_4" href="">
+            4-
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_5" href="">
+            5-
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_6" href="">
+            6-
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_7" href="">
+            7-
+          </a>
+        </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_8" href="">
+            8-
+          </a>
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_9" href="">
+            9-
+          </a>
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_1_10" href="">
+            10-
+          </a>
+          </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_2">
+          <p class="itemssfor3_1" id="end_">
+            11-20
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_2_1" href="">
+            11-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_2" href="">
+            12-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_3" href="">
+            13-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_4" href="">
+            14-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_5" href="">
+            15-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_6" href="">
+            16-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_7" href="">
+            17-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_8" href="">
+            18-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_9" href="">
+            19-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_2_10" href="">
+            20-
+          </a>
+        </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_3">
+          <p class="itemssfor3_1" id="end_">
+            21-30
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_3_1" href="">
+            21-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_2" href="">
+            22-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_3" href="">
+            23-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_4" href="">
+            24-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_5" href="">
+            25-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_6" href="">
+            26-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_7" href="">
+            27-
+          </a>
+        </p>
+        <p>        
+          <a class="itemssfor5_1" id="itemfor5_3_8" href="">
+            28-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_9" href="">
+            29-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_3_10" href="">
+            30-
+          </a>
+        </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_4">
+          <p class="itemssfor3_1" id="end_">
+            31-40
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_4_1" href="">
+            31-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_2" href="">
+            32-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_3" href="">
+            33-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_4" href="">
+            34-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_5" href="">
+            35-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_6" href="">
+            36-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_7" href="">
+            37-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_8" href="">
+            38-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_9" href="">
+            39-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_4_10" href="">
+            40-
+          </a>
+        </p>
+        </div>
+        <div class="itemssfor5" id="itemfor3_5">
+          <p class="itemssfor3_1" id="end_">
+            41-50
+          </p>
+          <p>
+          <a class="itemssfor5_1" id="itemfor5_5_1" href="">
+            41-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_2" href="">
+            42-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_3" href="">
+            43-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_4" href="">
+            44-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_5" href="">
+            45-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_6" href="">
+            46-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_7" href="">
+            47-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_8" href="">
+            48-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_9" href="">
+            49-
+          </a>
+        </p>
+        <p>
+          <a class="itemssfor5_1" id="itemfor5_5_10" href="">
+            50-
+          </a>
+        </p> 
+        </div>
+        </div>
+      </div>
+      <footer>
+        <div class="end" id="end">
+          <a href="https://twitter.com/Pepeefirat" target=”_blank”>
+              My Twitter
+          </a>
+          <a id="end1" href="https://github.com/pepeefirat" target=”_blank”>
+              My Github
+          </a>
+          <a href="https://myanimelist.net/profile/pepeefirat" target=”_blank”>
+              My Mal
+          </a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="jscript.js"></script>
+</body>
+</html>
